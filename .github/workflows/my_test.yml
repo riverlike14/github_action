@@ -1,0 +1,16 @@
+name: My Test
+
+on: push
+
+jobs:
+  send-slack-message:
+    runs-on: macos-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+
+      - name: Install Fastlane
+        run: brew install fastlane
+
+      - name: Send slack message
+        run: fastlane send_slack_message
